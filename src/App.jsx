@@ -18,8 +18,8 @@ let App = () => {
 	let [sliders, setSliders] = useState(generateSliderValues(defaultSliders));
 	let [sliderSettings, setSliderSettings] = useState(defaultSliders);
 	let [labelDisplay, setLabelDisplay] = useState(ShowStates.SHORT);
-	let [lockDisplay, setLockDisplay] = useState(ShowStates.LONG);
-	let [infoDisplay, setInfoDisplay] = useState(true);
+	let [lockDisplay, setLockDisplay] = useState(true);
+	let [infoDisplay, setInfoDisplay] = useState(false);
 
 	// region SliderLogic
 

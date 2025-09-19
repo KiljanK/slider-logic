@@ -1,3 +1,4 @@
+import getSliderLabel from "../utility/getSliderLabel";
 import ShowStates from "../utility/ShowStates";
 import SliderLock from "./SliderLock";
 import SliderInfo from "./SliderInfo";
@@ -16,17 +17,10 @@ let SliderPanel = ({
 		<div className={`w-[90%] px-4 py-8 justify-around flex flex-row`}>
 			{Object.keys(sliderValues).map((sliderKey) => {
 				// general display logic
-				let displayInformation = sliderSettings?.names[sliderKey];
-				let displayColor =
-					displayInformation?.color || "rgba(172, 172, 172, 1)";
-				let displayNames = displayInformation?.labels;
-				let displayName = null;
 
-				if (labelDisplay === ShowStates.SHORT) {
-					displayName = displayNames?.short || sliderKey;
-				} else if (labelDisplay === ShowStates.LONG) {
-					displayName = displayNames?.long || sliderKey;
-				}
+				let displayColor =
+					sliderSettings?.names?.[sliderKey]?.color ||
+					"rbga(255, 255, 255, 1)";
 
 				let currentValue = sliderValues[sliderKey];
 
@@ -61,6 +55,17 @@ let SliderPanel = ({
 					displayLockLabel = true;
 				}
 
+				// displayName ? opacity : "opacity-0"
+				let labelClass = `text-3xl text-center mt-12 absolute bottom-0 translate-y-full select-none cursor-default ${""} transition-opacity duration-1000`;
+
+				let displayLabel = getSliderLabel(
+					sliderSettings,
+					labelDisplay,
+					sliderKey,
+					labelClass,
+					`global-slider-label-of`
+				);
+
 				// region Rendering
 				return (
 					<div
@@ -86,16 +91,7 @@ let SliderPanel = ({
 							}}
 						/>
 
-						<p
-							className={`text-3xl text-center mt-12 absolute bottom-0 translate-y-full select-none cursor-default ${
-								displayName ? opacity : "opacity-0"
-							} transition-opacity duration-1000`}
-							style={{
-								color: displayColor,
-							}}
-						>
-							{displayName}
-						</p>
+						{displayLabel}
 
 						<SliderInfo
 							sliderSettings={sliderSettings}
@@ -109,8 +105,8 @@ let SliderPanel = ({
 							sliderSettings={sliderSettings}
 							sliderKey={sliderKey}
 							disabled={disabled}
-							displayLock={displayLock}
-							displayLockLabel={displayLockLabel}
+							displayLock={lockDisplay}
+							displayLabels={labelDisplay}
 							blockingConditions={blockingConditions}
 						/>
 					</div>

@@ -1,4 +1,4 @@
-import ShowStates from "../utility/ShowStates";
+import getSliderLabel from "../utility/getSliderLabel";
 import {
 	lockIconFull,
 	lightningIconFull,
@@ -18,32 +18,15 @@ let SliderInfo = ({
 
 	let makeElementsFromKeys = (elementList, keyList) => {
 		for (let key of keyList) {
-			let name = sliderKey;
-			let color = "rgba(255, 255, 255, 1)";
-
-			if (Object.keys(sliderSettings?.names)?.includes(key)) {
-				let keySettings = sliderSettings?.names[key];
-
-				if (
-					keySettings?.labels?.long &&
-					displayLabels === ShowStates.LONG
-				) {
-					name = keySettings?.labels?.long;
-				} else if (keySettings?.labels?.short) {
-					name = keySettings?.labels?.short;
-				}
-
-				color = keySettings?.color || "rgba(255, 255, 255, 1)";
-			}
-
-			elementList.push(
-				<p
-					key={`slider-info-${sliderKey}-requirement-${key}`}
-					style={{ color: color }}
-				>
-					{name}
-				</p>
+			let sliderLabel = getSliderLabel(
+				sliderSettings,
+				displayLabels,
+				key,
+				null,
+				`slider-info-of-${sliderKey}`
 			);
+
+			elementList.push(sliderLabel);
 		}
 	};
 
@@ -97,7 +80,7 @@ let SliderInfo = ({
 	// region Rendering
 	return (
 		<ul
-			className={`z-[1] text-sm bg-white/50 backdrop-blur-sm rounded-lg p-2 text-center mt-12 absolute top-0 select-none cursor-default ${opacity} transition-opacity duration-1000 flex flex-col items-start justify-center`}
+			className={`z-[1] bg-white/50 backdrop-blur-sm rounded-lg p-2 text-center mt-12 absolute top-0 select-none cursor-default ${opacity} transition-opacity duration-1000 flex flex-col items-start justify-center`}
 		>
 			{requirements?.length > 0 && (
 				<span className={`flex items-center justify-center space-x-2`}>

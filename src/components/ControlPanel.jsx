@@ -31,7 +31,7 @@ let ControlPanel = ({
 	};
 
 	let lockOnClick = () => {
-		toggleDisplayStates(lockDisplay, setLockDisplay);
+		setLockDisplay(!lockDisplay);
 	};
 
 	let infoOnClick = () => {
