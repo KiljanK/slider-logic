@@ -19,6 +19,7 @@ let App = () => {
 	let [sliderSettings, setSliderSettings] = useState(defaultSliders);
 	let [labelDisplay, setLabelDisplay] = useState(ShowStates.SHORT);
 	let [lockDisplay, setLockDisplay] = useState(ShowStates.LONG);
+	let [infoDisplay, setInfoDisplay] = useState(true);
 
 	// region SliderLogic
 
@@ -123,6 +124,8 @@ let App = () => {
 				lockDisplay={lockDisplay}
 				setLockDisplay={setLockDisplay}
 				resetSliderValues={resetSliderValues}
+				infoDisplay={infoDisplay}
+				setInfoDisplay={setInfoDisplay}
 			/>
 			<SliderPanel
 				sliderValues={sliders}
@@ -130,6 +133,7 @@ let App = () => {
 				sliderSetter={sliderSetter}
 				labelDisplay={labelDisplay}
 				lockDisplay={lockDisplay}
+				infoDisplay={infoDisplay}
 			/>
 		</div>
 	);

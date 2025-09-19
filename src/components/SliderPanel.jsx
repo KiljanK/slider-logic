@@ -1,5 +1,6 @@
 import ShowStates from "../utility/ShowStates";
 import SliderLock from "./SliderLock";
+import SliderInfo from "./SliderInfo";
 
 let SliderPanel = ({
 	sliderValues,
@@ -7,6 +8,7 @@ let SliderPanel = ({
 	sliderSetter,
 	labelDisplay,
 	lockDisplay,
+	infoDisplay,
 }) => {
 	// region Setup
 
@@ -83,6 +85,7 @@ let SliderPanel = ({
 								sliderSetter(sliderKey, numericValue);
 							}}
 						/>
+
 						<p
 							className={`text-3xl text-center mt-12 absolute bottom-0 translate-y-full select-none cursor-default ${
 								displayName ? opacity : "opacity-0"
@@ -93,6 +96,14 @@ let SliderPanel = ({
 						>
 							{displayName}
 						</p>
+
+						<SliderInfo
+							sliderSettings={sliderSettings}
+							sliderKey={sliderKey}
+							disabled={disabled}
+							displayInformation={infoDisplay}
+							displayLabels={labelDisplay}
+						/>
 
 						<SliderLock
 							sliderSettings={sliderSettings}

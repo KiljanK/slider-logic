@@ -122,3 +122,70 @@ export const settingsIcon = (
 		/>
 	</svg>
 );
+
+// HEROICONS information-circle
+export const infoIcon = (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		className="size-8"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+		/>
+	</svg>
+);
+
+// HEROICONS information-circle (solid)
+export const infoIconFull = (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="currentColor"
+		className="size-8"
+	>
+		<path
+			fillRule="evenodd"
+			d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+			clipRule="evenodd"
+		/>
+	</svg>
+);
+
+// HEROICONS bolt (solid)
+export const lightningIconFull = (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="currentColor"
+		className="size-8"
+	>
+		<path
+			fillRule="evenodd"
+			d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+			clipRule="evenodd"
+		/>
+	</svg>
+);
+
+export const equalsIcon = (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		strokeWidth={1.5}
+		stroke="currentColor"
+		className="size-8"
+	>
+		<path
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			d="M4.499 8.248h15m-15 7.501h15"
+		/>
+	</svg>
+);

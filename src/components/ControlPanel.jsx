@@ -8,6 +8,8 @@ import {
 	lockIcon,
 	lockIconFull,
 	settingsIcon,
+	infoIcon,
+	infoIconFull,
 	chevronLeft,
 } from "../utility/heroIcons";
 
@@ -16,6 +18,8 @@ let ControlPanel = ({
 	setLabelDisplay,
 	lockDisplay,
 	setLockDisplay,
+	infoDisplay,
+	setInfoDisplay,
 	resetSliderValues,
 }) => {
 	// region Setup
@@ -28,6 +32,10 @@ let ControlPanel = ({
 
 	let lockOnClick = () => {
 		toggleDisplayStates(lockDisplay, setLockDisplay);
+	};
+
+	let infoOnClick = () => {
+		setInfoDisplay(!infoDisplay);
 	};
 
 	// region Icons
@@ -52,6 +60,13 @@ let ControlPanel = ({
 			iconActive: lockIconFull,
 			logicState: lockDisplay,
 			onClick: lockOnClick,
+		},
+
+		info: {
+			iconInactive: infoIcon,
+			iconActive: infoIconFull,
+			logicState: infoDisplay,
+			onClick: infoOnClick,
 		},
 
 		settings: {
