@@ -6,7 +6,7 @@ import defaultSliders from "./utility/defaultSliders";
 
 let App = () => {
 	// region Setup
-	let populateSliderValues = (input) => {
+	let generateSliderValues = (input) => {
 		let output = {};
 		let sliderKeys = input?.names ? Object.keys(input?.names) : [];
 		for (let sliderKey of sliderKeys) {
@@ -15,12 +15,22 @@ let App = () => {
 		return output;
 	};
 
-	let [sliders, setSliders] = useState(populateSliderValues(defaultSliders));
+	let [sliders, setSliders] = useState(generateSliderValues(defaultSliders));
 	let [sliderSettings, setSliderSettings] = useState(defaultSliders);
 	let [labelDisplay, setLabelDisplay] = useState(ShowStates.SHORT);
 	let [lockDisplay, setLockDisplay] = useState(ShowStates.LONG);
 
 	// region SliderLogic
+
+	let resetSliderValues = () => {
+		let newSliders = { ...sliders };
+
+		for (let sliderKey of Object.keys(newSliders)) {
+			newSliders[sliderKey] = 0;
+		}
+
+		setSliders(newSliders);
+	};
 
 	let sliderSetter = (name, value) => {
 		let newSliders = { ...sliders };
@@ -112,6 +122,7 @@ let App = () => {
 				setLabelDisplay={setLabelDisplay}
 				lockDisplay={lockDisplay}
 				setLockDisplay={setLockDisplay}
+				resetSliderValues={resetSliderValues}
 			/>
 			<SliderPanel
 				sliderValues={sliders}

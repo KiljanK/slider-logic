@@ -16,6 +16,7 @@ let ControlPanel = ({
 	setLabelDisplay,
 	lockDisplay,
 	setLockDisplay,
+	resetSliderValues,
 }) => {
 	// region Setup
 
@@ -36,7 +37,7 @@ let ControlPanel = ({
 			iconInactive: reloadIcon,
 			iconActive: reloadIcon,
 			logicState: ShowStates.LONG,
-			onClick: () => {},
+			onClick: resetSliderValues,
 		},
 
 		labels: {
