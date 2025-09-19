@@ -27,14 +27,10 @@ let defaultSliders = {
 	},
 
 	rules: {
-		exclusions: [
-			["testA", "testC"],
-			["testA", "testD"],
-			["testA", "testE"],
-		],
-		equivalencies: [],
+		exclusions: [["testA", "testB"]],
+		equivalencies: [["testA", "testF"]],
 		requirements: {
-			testD: ["testB"],
+			testD: ["testE"],
 			testC: ["testB"],
 			testE: ["testF"],
 		},

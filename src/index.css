@@ -27,8 +27,8 @@
 			to right,
 			var(--slider-color) 0%,
 			var(--slider-color) var(--progress),
-			rgb(122, 122, 122) var(--progress),
-			rgb(122, 122, 122) 100%
+			rgb(102, 102, 102) var(--progress),
+			rgb(102, 102, 102) 100%
 		);
 		border-radius: 100px;
 	}
