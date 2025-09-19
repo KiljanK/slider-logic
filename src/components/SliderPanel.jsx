@@ -10,7 +10,7 @@ let SliderPanel = ({
 	// region Setup
 
 	return (
-		<div className={`w-[90%] p-4 justify-around flex flex-row`}>
+		<div className={`w-[90%] px-4 py-8 justify-around flex flex-row`}>
 			{Object.keys(sliderValues).map((sliderKey) => {
 				let displayInformation = sliderSettings?.names[sliderKey];
 				let displayColor =
@@ -28,18 +28,16 @@ let SliderPanel = ({
 
 				return (
 					<div
-						className="slider-container flex flex-col h-[80vh] items-center justify-center"
+						className="slider-container z-[0] flex flex-col h-[70vh] items-center justify-center relative"
 						key={`slider-${sliderKey}`}
 					>
 						<input
-							className={`h-full`}
+							className={`w-[70vh] -rotate-90 absolute bottom-[50%]`}
 							type="range"
 							orient="vertical"
 							min="0"
 							max="100"
 							style={{
-								// appearance: "slider-vertical",
-								// WebkitAppearance: "slider-vertical",
 								"--slider-color": displayColor,
 							}}
 							value={currentValue}
@@ -56,7 +54,7 @@ let SliderPanel = ({
 							}}
 						/>
 						<p
-							className={`text-3xl mt-12`}
+							className={`text-3xl text-center mt-12 absolute bottom-0 translate-y-full`}
 							style={{
 								color: displayColor,
 							}}

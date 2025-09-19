@@ -4,30 +4,31 @@
 
 .slider-container {
 	input[type="range"] {
-		appearance: slider-vertical;
-		-webkit-appearance: slider-vertical;
+		appearance: none;
+		-webkit-appearance: none;
+		background: transparent;
 		--progress: 0%;
 	}
 
 	input[type="range"]::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		width: 1.5em;
-		height: 1.5em;
-		margin-left: 1.3em;
-		border-radius: 25px;
-		transform: scale(5);
+		width: 5em;
+		height: 5em;
+		margin-top: -0.75em;
+		background: white;
+		border-radius: 50px;
 		transform-origin: center;
 	}
 
 	input[type="range"]::-webkit-slider-runnable-track {
-		width: 4em;
+		height: 3.5em;
 		background: linear-gradient(
-			to top,
+			to right,
 			var(--slider-color) 0%,
 			var(--slider-color) var(--progress),
-			rgb(45, 45, 45) var(--progress),
-			rgb(45, 45, 45) 100%
+			rgb(122, 122, 122) var(--progress),
+			rgb(122, 122, 122) 100%
 		);
 		border-radius: 100px;
 	}
