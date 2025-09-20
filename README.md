@@ -2,7 +2,7 @@
 
 This is a small [React](https://react.dev) application to interact with sliders that follow custom rules.
 
-While it is hosted publically, the application is not a public service or a product. It is only hosted with this visibility, so that I can access it quickly from my phone for private use.
+While it is hosted [publically](https://kiljank.github.io/slider-logic/), the application is not a public service or a product. It is only hosted with this visibility, so that I can access it quickly from my phone for private use.
 
 ![Example_Screenshot](./resources/example_screenshot.png)
 
