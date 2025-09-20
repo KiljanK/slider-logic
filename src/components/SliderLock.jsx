@@ -9,8 +9,12 @@ let SliderLock = ({
 	displayLabels,
 	blockingConditions,
 }) => {
+	// region Setup
+
 	let opacity = disabled ? "opacity-100 z-[2]" : "opacity-0 z-[0]";
 	opacity = displayLock ? opacity : "opacity-0 z-[0]";
+
+	// region Rendering
 
 	return (
 		<div

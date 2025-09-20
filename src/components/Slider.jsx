@@ -11,7 +11,7 @@ let Slider = ({
 	lockDisplay,
 	infoDisplay,
 }) => {
-	// region Setup
+	// region Color Bar
 
 	let displayColor =
 		sliderSettings?.names?.[sliderKey]?.color || "rbga(255, 255, 255, 1)";
@@ -29,7 +29,8 @@ let Slider = ({
 
 	progressValue += progressModifier;
 
-	// disabling logic
+	// region Disabling
+
 	let disabled = false;
 	let potentialBlockers = [];
 	let blockingConditions = [];
@@ -51,7 +52,8 @@ let Slider = ({
 
 	let opacity = disabled ? "opacity-25" : "opacity-100";
 
-	// displayName ? opacity : "opacity-0"
+	// region Labeling
+
 	let labelClass = `text-3xl text-center mt-12 absolute bottom-0 translate-y-full select-none cursor-default ${""} transition-opacity duration-1000`;
 
 	let displayLabel = getSliderLabel(
@@ -61,7 +63,6 @@ let Slider = ({
 		labelClass,
 		`global-slider-label-of`
 	);
-
 	// region Rendering
 	return (
 		<div
@@ -80,7 +81,7 @@ let Slider = ({
 				value={currentValue}
 				disabled={disabled}
 				onChange={(e) => {
-					let numericValue = parseInt(e.target.value);
+					let numericValue = Number(e.target.value);
 					sliderSetter(sliderKey, numericValue);
 				}}
 			/>

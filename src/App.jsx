@@ -14,7 +14,7 @@ let App = () => {
 	let [lockDisplay, setLockDisplay] = useState(true);
 	let [infoDisplay, setInfoDisplay] = useState(false);
 
-	// region SliderLogic
+	// region Slider Logic
 
 	let resetSliderValues = () => {
 		let newSliders = { ...sliders };

@@ -31,18 +31,6 @@ let ControlPanel = ({
 
 	let [visibility, setVisibility] = useState(true);
 
-	let labelOnClick = () => {
-		toggleDisplayStates(labelDisplay, setLabelDisplay);
-	};
-
-	let lockOnClick = () => {
-		setLockDisplay(!lockDisplay);
-	};
-
-	let infoOnClick = () => {
-		setInfoDisplay(!infoDisplay);
-	};
-
 	let settingsOnClick = async (e) => {
 		let previous = { ...sliderSettings };
 		let isMobile = mobileCheck();
@@ -68,7 +56,7 @@ let ControlPanel = ({
 		}
 	};
 
-	// region Icons
+	// region Button Content
 
 	let buttons = {
 		reload: {
@@ -82,21 +70,27 @@ let ControlPanel = ({
 			iconInactive: labelsIcon,
 			iconActive: labelsIconFull,
 			logicState: labelDisplay,
-			onClick: labelOnClick,
+			onClick: () => {
+				toggleDisplayStates(labelDisplay, setLabelDisplay);
+			},
 		},
 
 		locks: {
 			iconInactive: lockIcon,
 			iconActive: lockIconFull,
 			logicState: lockDisplay,
-			onClick: lockOnClick,
+			onClick: () => {
+				setLockDisplay(!lockDisplay);
+			},
 		},
 
 		info: {
 			iconInactive: infoIcon,
 			iconActive: infoIconFull,
 			logicState: infoDisplay,
-			onClick: infoOnClick,
+			onClick: () => {
+				setInfoDisplay(!infoDisplay);
+			},
 		},
 
 		settings: {
@@ -110,9 +104,7 @@ let ControlPanel = ({
 	// region Rendering
 
 	let buttonClasses = `bg-gray-500/50 hover:bg-gray-700/50 active:scale-[0.9] text-white flex items-center justify-center p-1`;
-	let hidingToggleClasses = `transition-all ${
-		visibility ? "" : "rotate-180"
-	}`;
+	let rotationClass = visibility ? "" : "rotate-180";
 
 	return (
 		<header
@@ -120,6 +112,7 @@ let ControlPanel = ({
 				visibility ? "" : "-translate-x-[100%]"
 			} transition-all rounded-br-lg w-fit p-2 bg-gray-600/30 shadow-md text-white flex flex-col space-y-2`}
 		>
+			{/* Map all of the buttons onto the Panel */}
 			{Object.keys(buttons).map((buttonName) => {
 				let button = buttons[buttonName];
 
@@ -148,7 +141,9 @@ let ControlPanel = ({
 					setVisibility(!visibility);
 				}}
 			>
-				<p className={hidingToggleClasses}>{chevronLeft}</p>
+				<p className={`transition-all ${rotationClass}`}>
+					{chevronLeft}
+				</p>
 			</button>
 		</header>
 	);

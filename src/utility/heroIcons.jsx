@@ -1,4 +1,6 @@
-// HEROICONS chevron-double-left
+// SOURCE https://heroicons.com
+
+// region chevron-double-left
 export const chevronLeft = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +18,7 @@ export const chevronLeft = (
 	</svg>
 );
 
-// HEROICONS
+// region arrow-path
 export const reloadIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +36,7 @@ export const reloadIcon = (
 	</svg>
 );
 
-// HEROICONS tag
+// region tag
 export const labelsIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +59,7 @@ export const labelsIcon = (
 	</svg>
 );
 
-// HEROICONS tag (solid)
+// region tag (solid)
 export const labelsIconFull = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +75,7 @@ export const labelsIconFull = (
 	</svg>
 );
 
-// HEROICONS lock-closed
+// region lock-closed
 export const lockIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +93,7 @@ export const lockIcon = (
 	</svg>
 );
 
-// HEROICONS lock-closed (solid)
+// region lock-closed (solid)
 export const lockIconFull = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +109,7 @@ export const lockIconFull = (
 	</svg>
 );
 
-// HEROICONS cog-6-tooth (solid)
+// region cog-6-tooth (solid)
 export const settingsIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +125,7 @@ export const settingsIcon = (
 	</svg>
 );
 
-// HEROICONS information-circle
+// region information-circle
 export const infoIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +143,7 @@ export const infoIcon = (
 	</svg>
 );
 
-// HEROICONS information-circle (solid)
+// region information-circle (solid)
 export const infoIconFull = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +159,7 @@ export const infoIconFull = (
 	</svg>
 );
 
-// HEROICONS bolt (solid)
+// region bolt (solid)
 export const lightningIconFull = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -173,6 +175,7 @@ export const lightningIconFull = (
 	</svg>
 );
 
+// region equals
 export const equalsIcon = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
