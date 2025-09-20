@@ -30,6 +30,11 @@ let App = () => {
 				decodeURIComponent(searchSettings)
 			);
 
+			// Ignore empty settings, also ignore settings that have neither rules nor names
+			if (!newSliderSettings) return;
+			let keys = Object.keys(newSliderSettings) || [];
+			if (!keys.includes("names") && keys.includes("rules")) return;
+
 			applySettings(
 				sliderSettings,
 				newSliderSettings,
