@@ -1,0 +1,18 @@
+{
+	"names": {
+		"day": {
+			"color": "rgb(255, 210, 48)",
+			"labels": { "short": "☀", "long": "Day" }
+		},
+		"night": {
+			"color": "rgba(109, 107, 164, 1)",
+			"labels": { "short": "☾", "long": "Night" }
+		}
+	},
+
+	"rules": {
+		"exclusions": [["day", "night"]],
+		"equivalencies": [],
+		"requirements": {}
+	}
+}

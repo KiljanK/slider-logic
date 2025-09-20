@@ -25,6 +25,9 @@ Network Trash Folder
 Temporary Items
 .apdisk# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# examples
+/examples/temp.json
+
 # dependencies
 /node_modules
 /.pnp
