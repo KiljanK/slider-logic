@@ -14,7 +14,7 @@ let SliderInfo = ({
 }) => {
 	// region Setup
 	let rules = sliderSettings?.rules;
-	if (Object.keys(rules)?.length === 0) return;
+	if (!rules || Object.keys(rules)?.length === 0) return;
 
 	let makeElementsFromKeys = (elementList, keyList) => {
 		for (let key of keyList) {
