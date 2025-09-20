@@ -9,12 +9,12 @@ let SliderLock = ({
 	displayLabels,
 	blockingConditions,
 }) => {
-	let opacity = disabled ? "opacity-100" : "opacity-0";
-	opacity = displayLock ? opacity : "opacity-0";
+	let opacity = disabled ? "opacity-100 z-[2]" : "opacity-0 z-[0]";
+	opacity = displayLock ? opacity : "opacity-0 z-[0]";
 
 	return (
 		<div
-			className={`absolute bottom-[55%] overflow-visible ${opacity} transition-opacity duration-300`}
+			className={`absolute bottom-[55%] overflow-visible ${opacity} transition-opacity duration-300 pointer-events-none`}
 		>
 			<p className={"scale-[5]"}>{lockIconFull}</p>
 			<ul

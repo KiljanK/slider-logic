@@ -1,5 +1,4 @@
 import getSliderLabel from "../utility/getSliderLabel";
-import ShowStates from "../utility/ShowStates";
 import SliderLock from "./SliderLock";
 import SliderInfo from "./SliderInfo";
 
@@ -24,6 +23,17 @@ let SliderPanel = ({
 
 				let currentValue = sliderValues[sliderKey];
 
+				let progressValue = currentValue;
+				let progressModifier = 0;
+
+				if (currentValue <= 10) {
+					progressModifier = 5;
+				} else if (currentValue >= 80) {
+					progressModifier = -5;
+				}
+
+				progressValue += progressModifier;
+
 				// disabling logic
 				let disabled = false;
 				let potentialBlockers = [];
@@ -45,15 +55,6 @@ let SliderPanel = ({
 				disabled = blockingConditions.length > 0;
 
 				let opacity = disabled ? "opacity-25" : "opacity-100";
-				let displayLock = false;
-				let displayLockLabel = false;
-
-				if (lockDisplay === ShowStates.SHORT) {
-					displayLock = true;
-				} else if (lockDisplay === ShowStates.LONG) {
-					displayLock = true;
-					displayLockLabel = true;
-				}
 
 				// displayName ? opacity : "opacity-0"
 				let labelClass = `text-3xl text-center mt-12 absolute bottom-0 translate-y-full select-none cursor-default ${""} transition-opacity duration-1000`;
@@ -69,7 +70,7 @@ let SliderPanel = ({
 				// region Rendering
 				return (
 					<div
-						className={`slider-container z-[0] flex flex-col h-[70vh] items-center justify-center relative`}
+						className={`slider-container z-[1] flex flex-col h-[70vh] items-center justify-center relative`}
 						key={`slider-${sliderKey}`}
 					>
 						<input
@@ -80,7 +81,7 @@ let SliderPanel = ({
 							max="100"
 							style={{
 								"--slider-color": displayColor,
-								"--progress": `${currentValue}%`,
+								"--progress": `${progressValue}%`,
 							}}
 							value={currentValue}
 							disabled={disabled}

@@ -75,12 +75,12 @@ let SliderInfo = ({
 	// If there are no rules, skip this whole thing
 	if ([...requirements, ...exclusions, ...equivalencies].length === 0) return;
 
-	let opacity = !displayInformation ? "opacity-0" : "opacity-100";
+	let opacity = !displayInformation ? "opacity-0 z-[0]" : "opacity-100 z-[2]";
 
 	// region Rendering
 	return (
 		<ul
-			className={`z-[1] bg-white/50 backdrop-blur-sm rounded-lg p-2 text-center mt-12 absolute top-0 select-none cursor-default ${opacity} transition-opacity duration-1000 flex flex-col items-start justify-center`}
+			className={`bg-white/50 backdrop-blur-sm rounded-lg p-2 text-center mt-12 absolute top-0 select-none cursor-default ${opacity} transition-opacity duration-1000 flex flex-col items-start justify-center pointer-events-none`}
 		>
 			{requirements?.length > 0 && (
 				<span className={`flex items-center justify-center space-x-2`}>

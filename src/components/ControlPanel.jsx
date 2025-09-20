@@ -116,7 +116,7 @@ let ControlPanel = ({
 
 	return (
 		<header
-			className={`absolute top-0 left-0 z-[1] h-fit ${
+			className={`absolute top-0 left-0 z-[2] h-fit ${
 				visibility ? "" : "-translate-x-[100%]"
 			} transition-all rounded-br-lg w-fit p-2 bg-gray-600/30 shadow-md text-white flex flex-col space-y-2`}
 		>
