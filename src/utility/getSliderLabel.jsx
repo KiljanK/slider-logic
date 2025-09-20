@@ -7,7 +7,7 @@ let getSliderLabel = (
 	classes,
 	keyPrefix
 ) => {
-	let name = null;
+	let displayName = null;
 	let color = "rgba(255, 255, 255, 1)";
 
 	if (Object.keys(sliderSettings?.names)?.includes(sliderKey)) {
@@ -15,15 +15,15 @@ let getSliderLabel = (
 		let labels = keySettings?.labels;
 
 		if (labels?.long && displayLabels === ShowStates.LONG) {
-			name = keySettings?.labels?.long;
+			displayName = keySettings?.labels?.long;
 		} else if (labels?.short && displayLabels === ShowStates.SHORT) {
-			name = keySettings?.labels?.short;
+			displayName = keySettings?.labels?.short;
 		}
 
 		color = keySettings?.color || "rgba(255, 255, 255, 1)";
 	}
 
-	if (!name) return;
+	if (!displayName) return;
 
 	return (
 		<p
@@ -31,7 +31,7 @@ let getSliderLabel = (
 			className={`${classes}`}
 			style={{ color: color }}
 		>
-			{name}
+			{displayName}
 		</p>
 	);
 };

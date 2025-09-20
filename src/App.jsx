@@ -26,18 +26,18 @@ let App = () => {
 		setSliders(newSliders);
 	};
 
-	let sliderSetter = (name, value) => {
+	let sliderSetter = (key, value) => {
 		let newSliders = { ...sliders };
-		newSliders[name] = value;
+		newSliders[key] = value;
 
 		let rules = sliderSettings?.rules;
 		let requirements = rules?.requirements || {};
 		let exclusions = rules?.exclusions || [];
 		let equivalencies = rules?.equivalencies || [];
 
-		let cascadeRequirementRules = (name) => {
+		let cascadeRequirementRules = (key) => {
 			for (let requiringSlider of Object.keys(requirements)) {
-				if (requirements[requiringSlider]?.includes(name)) {
+				if (requirements[requiringSlider]?.includes(key)) {
 					newSliders[requiringSlider] = 0;
 
 					cascadeRequirementRules(requiringSlider);
@@ -45,11 +45,11 @@ let App = () => {
 			}
 		};
 
-		let cascadeExclusionRules = (name) => {
+		let cascadeExclusionRules = (key) => {
 			for (let exclusion of exclusions) {
-				if (exclusion?.includes(name)) {
+				if (exclusion?.includes(key)) {
 					let getsExcluded = exclusion?.find(
-						(element) => element !== name
+						(element) => element !== key
 					);
 
 					newSliders[getsExcluded] = 0;
@@ -59,11 +59,11 @@ let App = () => {
 			}
 		};
 
-		let cascadeEquivalencyRules = (name, value, equivalencies) => {
+		let cascadeEquivalencyRules = (key, value, equivalencies) => {
 			for (let equivalency of equivalencies) {
-				if (equivalency?.includes(name)) {
+				if (equivalency?.includes(key)) {
 					let getsManuallySet = equivalency?.find(
-						(element) => element !== name
+						(element) => element !== key
 					);
 
 					newSliders[getsManuallySet] = value;
@@ -92,17 +92,17 @@ let App = () => {
 
 		// If you are setting a slider to 0, check if any other sliders become unavailable (recursively)
 		if (value === 0 && Object.keys(requirements).length > 0) {
-			cascadeRequirementRules(name);
+			cascadeRequirementRules(key);
 		}
 
 		// Respect mutually exclusive sliders
 		if (value > 0 && exclusions.length > 0) {
-			cascadeExclusionRules(name);
+			cascadeExclusionRules(key);
 		}
 
 		// Also keep in mind that sliders may me linked to each other
 		if (equivalencies.length > 0) {
-			cascadeEquivalencyRules(name, value, equivalencies);
+			cascadeEquivalencyRules(key, value, equivalencies);
 		}
 
 		setSliders(newSliders);
