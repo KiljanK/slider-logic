@@ -12,6 +12,7 @@ import {
 	settingsIcon,
 	infoIcon,
 	infoIconFull,
+	scaleIcon,
 	chevronLeft,
 } from "../utility/heroIcons";
 
@@ -22,6 +23,8 @@ let ControlPanel = ({
 	setLockDisplay,
 	infoDisplay,
 	setInfoDisplay,
+	legalDisplay,
+	setLegalDisplay,
 	sliderSettings,
 	setSliderSettings,
 	setSliders,
@@ -90,6 +93,15 @@ let ControlPanel = ({
 			logicState: infoDisplay,
 			onClick: () => {
 				setInfoDisplay(!infoDisplay);
+			},
+		},
+
+		legal: {
+			iconInactive: scaleIcon,
+			iconActive: scaleIcon,
+			logicState: legalDisplay,
+			onClick: () => {
+				setLegalDisplay(!legalDisplay);
 			},
 		},
 

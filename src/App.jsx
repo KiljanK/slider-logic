@@ -5,6 +5,7 @@ import ShowStates from "./utility/ShowStates";
 import findBlockers from "./utility/findBlockers";
 import defaultSliders from "./utility/defaultSliders";
 import generateSliderValues from "./utility/generateSliderValues";
+import { codeIcon } from "./utility/heroIcons";
 
 let App = () => {
 	// region Setup
@@ -14,6 +15,7 @@ let App = () => {
 	let [labelDisplay, setLabelDisplay] = useState(ShowStates.SHORT);
 	let [lockDisplay, setLockDisplay] = useState(true);
 	let [infoDisplay, setInfoDisplay] = useState(false);
+	let [legalDisplay, setLegalDisplay] = useState(false);
 
 	// region Slider Logic
 
@@ -127,6 +129,8 @@ let App = () => {
 				setLockDisplay={setLockDisplay}
 				infoDisplay={infoDisplay}
 				setInfoDisplay={setInfoDisplay}
+				legalDisplay={legalDisplay}
+				setLegalDisplay={setLegalDisplay}
 				sliderSettings={sliderSettings}
 				setSliderSettings={setSliderSettings}
 				setSliders={setSliders}
@@ -148,6 +152,26 @@ let App = () => {
 						/>
 					);
 				})}
+			</div>
+
+			<div
+				className={`absolute top-0 right-0 p-2 italic flex items-center justify-center space-x-2 animate-opacity duration-300 ${
+					legalDisplay ? "opacity-50" : "opacity-0"
+				}`}
+			>
+				<p>
+					This app is for my private (personal) use only and does not
+					represent a public product or service.
+				</p>
+				<a
+					href={`https://github.com/KiljanK/slider-logic/`}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={`flex items-center justify-center space-x-1 hover:underline`}
+				>
+					<p>{codeIcon}</p>
+					<p>GitHub</p>
+				</a>
 			</div>
 		</div>
 	);
