@@ -4,6 +4,8 @@ This is a small [React](https://react.dev) application to interact with sliders 
 
 While it is hosted publically, the application is not a public service or a product. It is only hosted with this visibility, so that I can access it quickly from my phone for private use.
 
+![Example_Screenshot](./resources/example_screenshot.png)
+
 > [!WARNING]
 > If you want to use this, keep in mind that the code quality is not optimal and some of the logic is highly convoluted. I simply needed an app with the features implemented here for personal demonstration purposes, so I quickly threw this together on a friday afternoon.
 
@@ -73,4 +75,4 @@ Requirements are defined slightly differently. The `requirements` object can hav
 
 ## Application Icon
 
-![[./resources/icon.png]]
+![Application_Icon](./resources/Icon.png)
