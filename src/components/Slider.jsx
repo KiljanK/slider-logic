@@ -1,4 +1,5 @@
 import getSliderLabel from "../utility/getSliderLabel";
+import findBlockers from "../utility/findBlockers";
 import SliderLock from "./SliderLock";
 import SliderInfo from "./SliderInfo";
 
@@ -32,21 +33,11 @@ let Slider = ({
 	// region Disabling
 
 	let disabled = false;
-	let potentialBlockers = [];
-	let blockingConditions = [];
-
-	let requirements = sliderSettings?.rules?.requirements || {};
-	for (let requirement of Object.keys(requirements)) {
-		if (requirement !== sliderKey) continue;
-
-		potentialBlockers = requirements[requirement];
-	}
-
-	for (let potentialBlocker of potentialBlockers) {
-		if (sliderValues[potentialBlocker] <= 0) {
-			blockingConditions.push(`${potentialBlocker}`);
-		}
-	}
+	let blockingConditions = findBlockers(
+		sliderSettings,
+		sliderValues,
+		sliderKey
+	);
 
 	disabled = blockingConditions.length > 0;
 

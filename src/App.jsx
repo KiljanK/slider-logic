@@ -2,6 +2,7 @@ import { useState } from "react";
 import Slider from "./components/Slider";
 import ControlPanel from "./components/ControlPanel";
 import ShowStates from "./utility/ShowStates";
+import findBlockers from "./utility/findBlockers";
 import defaultSliders from "./utility/defaultSliders";
 import generateSliderValues from "./utility/generateSliderValues";
 
@@ -66,7 +67,15 @@ let App = () => {
 						(element) => element !== key
 					);
 
-					newSliders[getsManuallySet] = value;
+					let blockingConditions = findBlockers(
+						sliderSettings,
+						sliders,
+						getsManuallySet
+					);
+
+					if (blockingConditions.length === 0) {
+						newSliders[getsManuallySet] = value;
+					}
 
 					if (value === 0 && Object.keys(requirements).length > 0) {
 						cascadeRequirementRules(getsManuallySet);
