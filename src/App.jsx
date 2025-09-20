@@ -3,17 +3,10 @@ import SliderPanel from "./components/SliderPanel";
 import ControlPanel from "./components/ControlPanel";
 import ShowStates from "./utility/ShowStates";
 import defaultSliders from "./utility/defaultSliders";
+import generateSliderValues from "./utility/generateSliderValues";
 
 let App = () => {
 	// region Setup
-	let generateSliderValues = (input) => {
-		let output = {};
-		let sliderKeys = input?.names ? Object.keys(input?.names) : [];
-		for (let sliderKey of sliderKeys) {
-			output[sliderKey] = 0;
-		}
-		return output;
-	};
 
 	let [sliders, setSliders] = useState(generateSliderValues(defaultSliders));
 	let [sliderSettings, setSliderSettings] = useState(defaultSliders);
@@ -123,9 +116,12 @@ let App = () => {
 				setLabelDisplay={setLabelDisplay}
 				lockDisplay={lockDisplay}
 				setLockDisplay={setLockDisplay}
-				resetSliderValues={resetSliderValues}
 				infoDisplay={infoDisplay}
 				setInfoDisplay={setInfoDisplay}
+				sliderSettings={sliderSettings}
+				setSliderSettings={setSliderSettings}
+				setSliders={setSliders}
+				resetSliderValues={resetSliderValues}
 			/>
 			<SliderPanel
 				sliderValues={sliders}

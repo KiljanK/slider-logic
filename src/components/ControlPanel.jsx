@@ -1,4 +1,6 @@
 import { useState } from "react";
+import mobileCheck from "../utility/mobileCheck";
+import generateSliderValues from "../utility/generateSliderValues";
 import toggleDisplayStates from "../utility/toggleDisplayStates";
 import ShowStates from "../utility/ShowStates";
 import {
@@ -20,6 +22,9 @@ let ControlPanel = ({
 	setLockDisplay,
 	infoDisplay,
 	setInfoDisplay,
+	sliderSettings,
+	setSliderSettings,
+	setSliders,
 	resetSliderValues,
 }) => {
 	// region Setup
@@ -36,6 +41,31 @@ let ControlPanel = ({
 
 	let infoOnClick = () => {
 		setInfoDisplay(!infoDisplay);
+	};
+
+	let settingsOnClick = async (e) => {
+		let previous = { ...sliderSettings };
+		let isMobile = mobileCheck();
+
+		try {
+			let newText = ``;
+
+			if (isMobile) {
+				newText = prompt("Please Enter a new Settings-Object!");
+			} else {
+				let clipboard = await navigator.clipboard.readText();
+				newText = clipboard;
+			}
+
+			newText = `${newText}`.trim();
+			let newSettings = JSON.parse(newText);
+
+			setSliders(generateSliderValues(newSettings));
+			setSliderSettings(newSettings);
+		} catch {
+			setSliders(generateSliderValues(previous));
+			setSliderSettings(previous);
+		}
 	};
 
 	// region Icons
@@ -73,7 +103,7 @@ let ControlPanel = ({
 			iconInactive: settingsIcon,
 			iconActive: settingsIcon,
 			logicState: ShowStates.LONG,
-			onClick: () => {},
+			onClick: settingsOnClick,
 		},
 	};
 
