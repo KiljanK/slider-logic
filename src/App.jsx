@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SliderPanel from "./components/SliderPanel";
+import Slider from "./components/Slider";
 import ControlPanel from "./components/ControlPanel";
 import ShowStates from "./utility/ShowStates";
 import defaultSliders from "./utility/defaultSliders";
@@ -123,14 +123,23 @@ let App = () => {
 				setSliders={setSliders}
 				resetSliderValues={resetSliderValues}
 			/>
-			<SliderPanel
-				sliderValues={sliders}
-				sliderSettings={sliderSettings}
-				sliderSetter={sliderSetter}
-				labelDisplay={labelDisplay}
-				lockDisplay={lockDisplay}
-				infoDisplay={infoDisplay}
-			/>
+
+			<div className={`w-[90%] px-4 py-8 justify-around flex flex-row`}>
+				{Object.keys(sliders).map((sliderKey) => {
+					return (
+						<Slider
+							sliderKey={sliderKey}
+							sliderValues={sliders}
+							sliderSettings={sliderSettings}
+							sliderSetter={sliderSetter}
+							labelDisplay={labelDisplay}
+							lockDisplay={lockDisplay}
+							infoDisplay={infoDisplay}
+							key={`slider-${sliderKey}`}
+						/>
+					);
+				})}
+			</div>
 		</div>
 	);
 };
