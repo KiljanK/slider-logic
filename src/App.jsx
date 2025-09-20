@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slider from "./components/Slider";
 import ControlPanel from "./components/ControlPanel";
 import ShowStates from "./utility/ShowStates";
+import applySettings from "./utility/applySettings";
 import findBlockers from "./utility/findBlockers";
 import defaultSliders from "./utility/defaultSliders";
 import generateSliderValues from "./utility/generateSliderValues";
@@ -16,6 +17,27 @@ let App = () => {
 	let [lockDisplay, setLockDisplay] = useState(true);
 	let [infoDisplay, setInfoDisplay] = useState(false);
 	let [legalDisplay, setLegalDisplay] = useState(false);
+
+	// Attempting to write a settings object taken from the URI
+
+	useEffect(() => {
+		try {
+			let searchParameters = new URL(document.location.toString())
+				.searchParams;
+			let searchSettings = searchParameters?.get("settings");
+
+			let newSliderSettings = JSON.parse(
+				decodeURIComponent(searchSettings)
+			);
+
+			applySettings(
+				sliderSettings,
+				newSliderSettings,
+				setSliders,
+				setSliderSettings
+			);
+		} catch {}
+	}, []);
 
 	// region Slider Logic
 

@@ -15,6 +15,9 @@ You can set up relatively complex, cascading logic for multiple sliders. This in
 
 Slider settings can be written into the application by clicking on the gear icon, which will paste any settings from the clipboard (or prompt for them on mobile).
 
+> [!TIP]
+> You can also pass settings into the application as a URL Parameter (`settings`). Be sure to stringify your JSON first and run it through `encodeURIComponent` before adding it to the URL.
+
 Settings objects are JSON objects that consist of the following structure:
 ```json
 {
